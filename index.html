@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>New Site</title>
+	<!-- Font Awesome -->
+	<script src="https://use.fontawesome.com/f99561e293.js"></script>
+	<!-- Bootstrap CDN -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+	<!-- Animate CSS -->
+	<link rel="stylesheet"  href="css/animate.css">
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+	<!-- Vue.js to do list example -->
+	<h1 id="h1">To Do List</h1>
+	<div id="todo">
+		<section>
+
+			<!-- html attributes that start with "v-" are called directives. They are html attributes that were created with vue.js and have lots of functionalitytied to them. -->
+			<!-- v-model is targeting a variable in this case "newItem" inside our vue instance and linking them together -->
+			<input 
+			type="text" 
+			placeholder="Add Item"
+			v-model='newItem'
+			v-on:keyup.enter="addItem">
+
+			<!--  Interpolation {{}} is getting data straight from the model by referencing the data by its name. ON THE HTML DIRECTLY -->
+
+			<!-- 2 way data binding is when an element is attached to a bariable and both are updated to a shared value. so both change at the same time -->
+			<p>{{newItem}}</p>
+		</section>
+		<ol>
+			<!-- v-for is a directive that repeats a template element -->
+			<li v-for="item in todoList">
+				<!-- item is the value of each index position in the todoList array -->
+				<label>
+
+					{{ item }}
+				</label>
+					<!--  the item in removeItem(item) is the exact array item that we are on in the v-for loop -->
+				<button type="button" v-on:click="removeItem(item)">X</button>
+			</li>
+		</ol>
+	</div>
+
+		<!-- Event data example -->
+
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+</html>
